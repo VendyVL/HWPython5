@@ -9,7 +9,7 @@
 
 # b) Подумайте как наделить бота ""интеллектом""
 
-n = 30
+n = 100
 
 def hod(str, n):
     a = int(input(f"{str} введите число "))
@@ -18,15 +18,22 @@ def hod(str, n):
     else: return n
 
 def vin(str, n):
-    if n<1: 
+    if n==0: 
         return str + " super"
     else: return n
 
+def bot(n):
+    if n <= 28:
+        a = n
+    else: a = n-28*(n//28)+1
+    print(f'Бот берёт {a}')
+    return n-a
 
-while n!=0: 
+
+while n>0: 
     n = hod("игрок 1", n)
-    print(vin("игрок 1", n))
-    n = hod("игрок 2", n)
-    print(vin("игрок 2", n))
+    print(vin("игрок 1", n))#Оно всё равно прогонит алгоритм до конца и бот тоже будет "супер" Но оно хотя бы вообще начало останавливаться и не уходит в минус)))
+    n = bot(n)
+    print(vin("Бот", n))
 
         
